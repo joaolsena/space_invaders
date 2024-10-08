@@ -17,7 +17,7 @@
 // 'a' move para a esquerda, 'd' move para a direita, ' ' (espaço) dispara, 'q' sai do jogo
 
 int ponto = 0;                    // Pontuação do jogador
-int vida = 0;                     // Quantidade de vida do jogador
+int vida = 3;                     // Quantidade de vida do jogador
 int posicao = MAX_tela_X / 10;    // Posição inicial dos monstros
 char imagem[MAX_tela_y][MAX_tela_X] = {0}; // Matriz que representa a tela do jogo
 

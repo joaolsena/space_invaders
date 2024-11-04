@@ -1,4 +1,4 @@
-// para rodar: clang -o versao-comentada /Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/versoes/versao-comentada.c -lSDL2 -lSDL2_mixer
+// para rodar: clang -o versao-comentada space_invadrs/jogo/versoes/versao-comentada.c -lSDL2 -lSDL2_mixer
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -381,11 +381,11 @@ void reinicia_jogo() {
 
 // Função para exibir a tela de "Game Over"
 void tela_game_over() {
-    Mix_Music* musica = tocarMusicaFundo("/Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/sons/musica-jogo2.mp3");
+    Mix_Music* musica = tocarMusicaFundo("space_invadrs/jogo/sons/musica-jogo2.mp3");
     Mix_FreeMusic(musica); // Libera a música de fundo
     Mix_CloseAudio();
     SDL_Quit(); // Encerra SDL
-    tocar_som("/Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/sons/death-sound.mp3"); // Som de morte
+    tocar_som("space_invadrs/jogo/sons/death-sound.mp3"); // Som de morte
 
     do {
         limpar(); // Limpa a tela antes de mostrar a tela de Game Over
@@ -407,7 +407,7 @@ void tela_game_over() {
             configuracoes_iniciais(); // Reconfigura o jogo
             limpar();
             iniciarAudio(); // Reinicia o áudio
-            Mix_Music* musica = tocarMusicaFundo("/Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/sons/musica-jogo2.mp3");
+            Mix_Music* musica = tocarMusicaFundo("space_invadrs/jogo/sons/musica-jogo2.mp3");
             break;
         } else if (fim == 'q') {
             exit(0); // Sai do jogo
@@ -423,7 +423,7 @@ void disparos() {
             tiro[i].x = jogador_p.x; // Define a posição inicial do tiro no eixo x
             tiro[i].y = jogador_p.y - 1; // Define a posição inicial do tiro no eixo y (acima do jogador)
             imagem[tiro[i].y][tiro[i].x] = forma_tiro; // Desenha o tiro na tela
-            tocar_som("/Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/sons/laser-104024.mp3"); // Som do tiro
+            tocar_som("space_invadrs/jogo/sons/laser-104024.mp3"); // Som do tiro
             break;
         }
     }
@@ -436,7 +436,7 @@ void gera_monstro_especial(){
         int num = rand() % 80; 
         if (num == 0) { // Chance de 1 em 80 para aparecer
             monstro4.ativo = 1;
-            tocar_som("/Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/sons/ufo_lowpitch.wav"); // Som do monstro especial
+            tocar_som("space_invadrs/jogo/sons/ufo_lowpitch.wav"); // Som do monstro especial
             if(direcao2 == 1){
                 monstro4.x = 1; // Inicia do lado esquerdo
             } else {
@@ -550,7 +550,7 @@ void velocidade_monstro() {
 
     // Quando todos os monstros são destruídos, aumenta o nível e reinicia os monstros
     if (monstros_ativos == 0) { 
-        tocar_som("/Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/sons/level-completed.mp3"); // Som de nível concluído
+        tocar_som("space_invadrs/jogo/sons/level-completed.mp3"); // Som de nível concluído
         level++;
         velocidade = 0;
         velocidade1 = 0;
@@ -616,7 +616,7 @@ void colisao_com_monstro() {
                     monstro[j].ativo = 0; // Desativa o monstro atingido
                     imagem[monstro[j].y][monstro[j].x] = ' '; // Remove monstro da tela
                     tiro[i].ativo = 0; // Desativa o tiro
-                    tocar_som("/Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/sons/explosion.mp3"); // Som de explosão
+                    tocar_som("space_invadrs/jogo/sons/explosion.mp3"); // Som de explosão
                     break;
                 }
             }
@@ -627,7 +627,7 @@ void colisao_com_monstro() {
                     monstro2[j].ativo = 0;
                     imagem[monstro2[j].y][monstro2[j].x] = ' ';
                     tiro[i].ativo = 0;
-                    tocar_som("/Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/sons/explosion.mp3");
+                    tocar_som("space_invadrs/jogo/sons/explosion.mp3");
                     break;
                 }
             }
@@ -638,7 +638,7 @@ void colisao_com_monstro() {
                     monstro3[j].ativo = 0;
                     imagem[monstro3[j].y][monstro3[j].x] = ' ';
                     tiro[i].ativo = 0;
-                    tocar_som("/Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/sons/explosion.mp3");
+                    tocar_som("space_invadrs/jogo/sons/explosion.mp3");
                     break;
                 }
             }
@@ -649,7 +649,7 @@ void colisao_com_monstro() {
                 monstro4.ativo = 0;
                 imagem[monstro4.y][monstro4.x] = ' ';
                 tiro[i].ativo = 0;
-                tocar_som("/Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/sons/explosion.mp3");
+                tocar_som("space_invadrs/jogo/sons/explosion.mp3");
                 break;
             }
         }
@@ -703,7 +703,7 @@ void colisao_com_barreiras() {
                     barreiras[j].resistencia--; // Reduz a resistência da barreira
                     tiro[i].ativo = 0;
                     imagem[tiro[i].y][tiro[i].x] = ' ';
-                    tocar_som("/Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/sons/explosion2.mp3");
+                    tocar_som("space_invadrs/jogo/sons/explosion2.mp3");
                     atualizar_resistencia_barreira();
                 }
             }
@@ -754,7 +754,7 @@ void tiro_monster() {
                 vida--; // Reduz vida do jogador
                 tiro_monstros[i].ativo = 0;
                 imagem[tiro_monstros[i].y][tiro_monstros[i].x] = ' ';
-                tocar_som("/Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/sons/explosion2.mp3");
+                tocar_som("space_invadrs/jogo/sons/explosion2.mp3");
                 if (vida == 0) {
                     tela_game_over();
                 }
@@ -769,7 +769,7 @@ void tiro_monster() {
                     barreiras[j].resistencia--;
                     tiro_monstros[i].ativo = 0;
                     imagem[tiro_monstros[i].y][tiro_monstros[i].x] = ' ';
-                   tocar_som("/Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/sons/explosion2.mp3");
+                   tocar_som("space_invadrs/jogo/sons/explosion2.mp3");
                     
             }
                    atualizar_resistencia_barreira();
@@ -804,7 +804,7 @@ void tiro_e_colisao() {
 int main() {
     srand(time(NULL)); // Inicializa o gerador de números aleatórios
     iniciarAudio(); // Inicia o sistema de áudio
-    Mix_Music* musica = tocarMusicaFundo("/Users/user01/Documents/GitHub/programacao1/jogo/spaceinvadrs/sons/musica-jogo2.mp3"); // Toca a música de fundo
+    Mix_Music* musica = tocarMusicaFundo("space_invadrs/jogo/sons/musica-jogo2.mp3"); // Toca a música de fundo
     tela_inicial(); // Exibe a tela inicial do jogo
 
     // Loop principal do jogo

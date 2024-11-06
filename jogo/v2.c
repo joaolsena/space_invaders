@@ -267,7 +267,22 @@ void tela_inicial() {
             configuracoes_iniciais();
             break; 
         } else if (opcao == 'i') {
-           // fazer uma bagulho de instrucoes do jogo algum dia ou so desisto 
+            system("cls");
+    printf("%*s----------------------------------------------------------------\n", MAX_margem + 45, "");
+    printf("%*s                        INSTRUÇÕES DO JOGO               \n", MAX_margem + 45, "");
+    printf("%*s----------------------------------------------------------------\n", MAX_margem + 45, "");
+    printf("%*sControles:\n", MAX_margem + 45, "");
+    printf("%*s- Setas Direita/Esquerda ou 'd'/'a': Mover o jogador\n", MAX_margem + 45, "");
+    printf("%*s- Barra de espaço: Disparar tiro\n", MAX_margem + 45, "");
+    printf("%*s- 'q': Sair do jogo\n\n", MAX_margem + 45, "");
+    printf("%*s----------------------------------------------------------------\n", MAX_margem + 45, "");
+    printf("%*sObjetivo:\n", MAX_margem + 45, "");
+    printf("%*sDerrote todos os monstros e alcance a maior pontuação possível.\n", MAX_margem + 45, "");
+    printf("%*s---------------------------------------------------------------\n", MAX_margem + 45, "");
+    printf("%*sPressione qualque tecla para voltar ao menu principal.\n", MAX_margem + 45, "");
+     printf("%*s---------------------------------------------------------------\n", MAX_margem + 45, "");
+    
+    getch();
         } else if (opcao == 'q') {
             exit(0);
         }
